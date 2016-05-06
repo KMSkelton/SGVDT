@@ -14,7 +14,7 @@ var server;
 const User = require(__dirname + '/../model/user');
 
 describe('signup and signin user routes', function() {
-  this.timeout(4000);
+  this.timeout(3000);
   before((done) => {
     server = app(port, mongooseConnect, () => {
       console.log('server up on ' + port);

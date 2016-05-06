@@ -14,7 +14,7 @@ const Offense = require(__dirname + '/../model/offense');
 const dailyData = require(__dirname + '/../lib/dailyUpdate');
 
 describe('the dailyData update function', function() {
-  this.timeout(4000);
+  this.timeout(2000);
   before((done) => {
     server = app(port, mongooseConnect, () => {
       console.log('server up on ' + port);
