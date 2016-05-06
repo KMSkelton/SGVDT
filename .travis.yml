@@ -13,6 +13,7 @@ addons:
 env:
   - CXX=g++-4.8
   - JWT_SECRET='sssshhhhhhhh'
+  - APP_SECRET='sssshhhhhhhh'
 sudo: required
 before_script:
   - npm install -g eslint mocha
