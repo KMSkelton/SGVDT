@@ -14,7 +14,7 @@ var server;
 const Offense = require(__dirname + '/../model/offense');
 
 describe('the GET method on /api/offenses route', function() {
-  this.timeout(4000);
+  this.timeout(2000);
   before((done) => {
     server = app(port, mongooseConnect, () => {
       console.log('server up on' + port);
