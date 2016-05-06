@@ -21,10 +21,10 @@ describe('the dailyData update function', function() {
       done();
     });
   });
-  after( (done) => {
+  after((done) => {
     mongoose.connection.db.dropDatabase(() => {
       mongoose.disconnect(() => {
-        server.close( () => {
+        server.close(() => {
           done();
         });
       });
@@ -32,7 +32,7 @@ describe('the dailyData update function', function() {
   });
 
   it('should update the database from SEA.gov data api', (done) => {
-    dailyData( () => {
+    dailyData(() => {
       Offense.count((err, data) => {
         expect(err).to.eql(null);
         expect(data).to.above(0);

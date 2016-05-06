@@ -15,7 +15,7 @@ const User = require(__dirname + '/../model/user');
 
 describe('signup and signin user routes', function() {
   this.timeout(4000);
-  before( (done) => {
+  before((done) => {
     server = app(port, mongooseConnect, () => {
       console.log('server up on ' + port);
       var newUser = new User({ username: 'one', password: 'one' });
@@ -28,7 +28,7 @@ describe('signup and signin user routes', function() {
       });
     });
   });
-  after( (done) => {
+  after((done) => {
     mongoose.connection.db.dropDatabase( () => {
       mongoose.disconnect( () => {
         server.close( () => {
@@ -42,7 +42,7 @@ describe('signup and signin user routes', function() {
     request('localhost:' + port)
     .post('/signup')
     .send({ username: 'two', password: 'two' })
-    .end( (err, res) => {
+    .end((err, res) => {
       expect(err).to.eql(null);
       expect(res.status).to.eql(200);
       User.findOne({ username: 'two' }, (err, data) => {

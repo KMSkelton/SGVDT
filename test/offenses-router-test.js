@@ -15,21 +15,21 @@ const Offense = require(__dirname + '/../model/offense');
 
 describe('the GET method on /api/offenses route', function() {
   this.timeout(4000);
-  before( (done) => {
+  before((done) => {
     server = app(port, mongooseConnect, () => {
       console.log('server up on' + port);
       var newOffense = new Offense({ offense: 'gunIncident' });
-      newOffense.save( (err, data) => {
+      newOffense.save((err, data) => {
         if (err) throw err;
         this.offense = data;
         done();
       });
     });
   });
-  after( (done) => {
+  after((done) => {
     mongoose.connection.db.dropDatabase( () => {
-      mongoose.disconnect( () => {
-        server.close( () => {
+      mongoose.disconnect(() => {
+        server.close(() => {
           done();
         });
       });
