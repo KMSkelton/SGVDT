@@ -15,6 +15,7 @@ env:
 sudo: required
 before_script:
   - npm install -g eslint mocha
+  - sleep 15
 script:
   - eslint $(find . -name '*.js' | grep -v '.min.js' | grep -v 'vendor' | grep -v 'node_modules')
   - mocha
