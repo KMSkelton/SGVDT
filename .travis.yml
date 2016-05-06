@@ -2,11 +2,14 @@ language: node_js
 node_js:
   - "4"
 services:
+  - mongodb
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
+    - mongodb-3.0-precise
     packages:
+    - mongodb-org-server
     - gcc-4.8
     - g++-4.8
 env:
@@ -14,11 +17,6 @@ env:
 sudo: required
 before_script:
   - npm install -g eslint mocha
-  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.4.tgz -O /tmp/mongodb.tgz
-  - tar -xvf /tmp/mongodb.tgz
-  - mkdir /tmp/data
-  - ${PWD}/mongodb-linux-x86_64-3.0.4/bin/mongod --dbpath /tmp/data --bind_ip 127.0.0.1 --auth &> /dev/null &
-  - until nc -z localhost 27017; do echo Waiting for MongoDB; sleep 1; done
 script:
   - eslint $(find . -name '*.js' | grep -v '.min.js' | grep -v 'vendor' | grep -v 'node_modules')
   - mocha
