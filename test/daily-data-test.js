@@ -34,7 +34,6 @@ describe('the dailyData update function', function() {
   it('should update the database from SEA.gov data api', (done) => {
     dailyData( () => {
       Offense.count((err, data) => {
-        console.log('counting offenses...');
         expect(err).to.eql(null);
         expect(data).to.above(0);
         done();

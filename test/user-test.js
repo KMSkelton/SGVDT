@@ -7,7 +7,7 @@ const request = chai.request;
 const mongoose = require('mongoose');
 const mongooseConnect = process.env.MONGO_URI = 'mongodb://localhost/user_test_db';
 
-const port = process.env.PORT = 5555;
+const port = process.env.PORT = 5557;
 var app = require(__dirname + '/../server/_server');
 var server;
 
